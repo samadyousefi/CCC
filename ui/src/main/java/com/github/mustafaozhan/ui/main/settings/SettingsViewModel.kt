@@ -16,12 +16,12 @@ import com.github.mustafaozhan.data.util.toRate
 import com.github.mustafaozhan.ui.main.MainData.Companion.DAY
 import com.github.mustafaozhan.ui.main.model.AppTheme
 import com.github.mustafaozhan.ui.main.settings.SettingsData.Companion.SYNC_DELAY
+import java.util.Date
+import javax.inject.Inject
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import java.util.Date
-import javax.inject.Inject
 
 @Suppress("TooManyFunctions")
 class SettingsViewModel
@@ -46,7 +46,8 @@ class SettingsViewModel
 
     init {
         _state._appThemeType.value = AppTheme.getThemeByValue(data.appTheme)
-        _state._addFreeDate.value = Date(preferencesRepository.adFreeActivatedDate).dateStringToFormattedString()
+        _state._addFreeDate.value = Date(preferencesRepository.adFreeActivatedDate + DAY)
+            .dateStringToFormattedString()
 
         viewModelScope.launch {
             currencyDao.collectActiveCurrencies()
