@@ -8,7 +8,7 @@ import com.github.mustafaozhan.data.db.CurrencyDao
 import com.github.mustafaozhan.data.db.OfflineRatesDao
 import com.github.mustafaozhan.data.preferences.PreferencesRepository
 import com.github.mustafaozhan.data.util.dateStringToFormattedString
-import com.github.mustafaozhan.ui.main.MainData.Companion.DAY
+import com.github.mustafaozhan.ui.main.MainData.Companion.AD_EXPIRATION
 import com.github.mustafaozhan.ui.main.model.AppTheme
 import com.github.mustafaozhan.ui.main.settings.BackEffect
 import com.github.mustafaozhan.ui.main.settings.ChangeThemeEffect
@@ -23,10 +23,10 @@ import com.github.mustafaozhan.ui.main.settings.ThemeDialogEffect
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
+import java.util.Date
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import java.util.Date
 
 class SettingsViewModelTest : BaseViewModelTest<SettingsViewModel>() {
 
@@ -68,7 +68,7 @@ class SettingsViewModelTest : BaseViewModelTest<SettingsViewModel>() {
         updateAddFreeDate()
         assertEquals(
             state.addFreeDate.value,
-            Date(System.currentTimeMillis() + DAY).dateStringToFormattedString()
+            Date(System.currentTimeMillis() + AD_EXPIRATION).dateStringToFormattedString()
         )
     }
 

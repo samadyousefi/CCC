@@ -21,10 +21,11 @@ open class MainData(
         internal const val KEY_BASE_CURRENCY = "base_currency"
         internal const val DAY = (24 * 60 * 60 * 1000).toLong()
         internal const val WEEK = 7 * DAY
+        internal const val AD_EXPIRATION = 2 * DAY
     }
 
     val isRewardExpired
-        get() = System.currentTimeMillis() - adFreeActivatedDate >= DAY
+        get() = System.currentTimeMillis() - adFreeActivatedDate >= AD_EXPIRATION
 
     var firstRun
         get() = preferencesRepository.firstRun

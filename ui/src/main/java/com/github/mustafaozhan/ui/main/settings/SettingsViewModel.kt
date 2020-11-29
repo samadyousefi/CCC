@@ -13,7 +13,7 @@ import com.github.mustafaozhan.data.db.OfflineRatesDao
 import com.github.mustafaozhan.data.preferences.PreferencesRepository
 import com.github.mustafaozhan.data.util.dateStringToFormattedString
 import com.github.mustafaozhan.data.util.toRate
-import com.github.mustafaozhan.ui.main.MainData.Companion.DAY
+import com.github.mustafaozhan.ui.main.MainData.Companion.AD_EXPIRATION
 import com.github.mustafaozhan.ui.main.model.AppTheme
 import com.github.mustafaozhan.ui.main.settings.SettingsData.Companion.SYNC_DELAY
 import java.util.Date
@@ -46,7 +46,7 @@ class SettingsViewModel
 
     init {
         _state._appThemeType.value = AppTheme.getThemeByValue(data.appTheme)
-        _state._addFreeDate.value = Date(preferencesRepository.adFreeActivatedDate + DAY)
+        _state._addFreeDate.value = Date(preferencesRepository.adFreeActivatedDate + AD_EXPIRATION)
             .dateStringToFormattedString()
 
         viewModelScope.launch {
@@ -60,7 +60,7 @@ class SettingsViewModel
     }
 
     fun updateAddFreeDate() = System.currentTimeMillis().let {
-        _state._addFreeDate.value = Date(it + DAY).dateStringToFormattedString()
+        _state._addFreeDate.value = Date(it + AD_EXPIRATION).dateStringToFormattedString()
         data.adFreeActivatedDate = it
     }
 
