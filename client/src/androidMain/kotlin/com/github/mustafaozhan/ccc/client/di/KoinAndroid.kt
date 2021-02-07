@@ -10,6 +10,7 @@ import com.github.mustafaozhan.ccc.client.viewmodel.BarViewModel
 import com.github.mustafaozhan.ccc.client.viewmodel.CalculatorViewModel
 import com.github.mustafaozhan.ccc.client.viewmodel.CurrenciesViewModel
 import com.github.mustafaozhan.ccc.client.viewmodel.MainViewModel
+import com.github.mustafaozhan.ccc.client.viewmodel.RemoveAdsViewModel
 import com.github.mustafaozhan.ccc.client.viewmodel.SettingsViewModel
 import com.github.mustafaozhan.ccc.common.log.kermit
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -39,4 +40,5 @@ actual val clientModule: Module = module {
     viewModel { CurrenciesViewModel(get(), get()) }
     viewModel { CalculatorViewModel(get(), get(), get(), get()) }
     viewModel { BarViewModel(get()) }
+    viewModel { RemoveAdsViewModel(get()) }
 }

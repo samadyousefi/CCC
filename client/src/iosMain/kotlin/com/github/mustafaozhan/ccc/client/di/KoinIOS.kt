@@ -10,6 +10,8 @@ import com.github.mustafaozhan.ccc.client.viewmodel.BarViewModel
 import com.github.mustafaozhan.ccc.client.viewmodel.CalculatorViewModel
 import com.github.mustafaozhan.ccc.client.viewmodel.CurrenciesViewModel
 import com.github.mustafaozhan.ccc.client.viewmodel.MainViewModel
+import com.github.mustafaozhan.ccc.client.viewmodel.RemoveAdsViewModel
+import com.github.mustafaozhan.ccc.client.viewmodel.RemoveAdsViewModel
 import com.github.mustafaozhan.ccc.client.viewmodel.SettingsViewModel
 import com.github.mustafaozhan.ccc.common.log.kermit
 import com.github.mustafaozhan.ccc.common.nsUserDefaults
@@ -34,6 +36,8 @@ actual val clientModule: Module = module {
     single { MainViewModel(get()) }
     single { CurrenciesViewModel(get(), get()) }
     single { CalculatorViewModel(get(), get(), get(), get()) }
+    single { BarViewModel(get()) }
+    single { RemoveAdsViewModel(get()) }
     single { BarViewModel(get()) }
 }
 
